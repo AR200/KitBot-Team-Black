@@ -27,9 +27,9 @@ import frc.robot.subsystems.CANLauncher;
 public class RobotContainer {
   // The robot's subsystems are defined here.
   private final CANDrivetrain m_drivetrain = new CANDrivetrain();
-  // private final CANDrivetrain m_drivetrain = new CANDrivetrain();
+  // private final PWMDrivetrain m_drivetrain = new PWMDrivetrain();
   private final CANLauncher m_launcher = new CANLauncher();
-  // private final CANLauncher m_launcher = new CANLauncher();
+  // private final PWMLauncher m_launcher = new PWMLauncher();
 
   /*The gamepad provided in the KOP shows up like an XBox controller if the mode switch is set to X mode using the
    * switch on the top.*/
@@ -50,7 +50,7 @@ public class RobotContainer {
    * below) or via the Trigger constructor for arbitary conditions
    */
   private void configureBindings() {
-    // Set the default command for the drivetrain to drive using the joysticks
+    // Set the default command for the drivetrain to arcade drive using the joysticks
     m_drivetrain.setDefaultCommand(
         new RunCommand(
             () ->

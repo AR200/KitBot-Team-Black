@@ -27,23 +27,21 @@ public class CANDrivetrain extends SubsystemBase {
    * member variables and perform any configuration or set up necessary on hardware.
    */
   public CANDrivetrain() {
-    CANSparkMax leftFront = new CANSparkMax(kLeftFrontID, MotorType.kBrushed);
-    @SuppressWarnings("resource")
-    CANSparkMax leftRear = new CANSparkMax(kLeftRearID, MotorType.kBrushed);
-    CANSparkMax rightFront = new CANSparkMax(kRightFrontID, MotorType.kBrushed);
-    @SuppressWarnings("resource")
-    CANSparkMax rightRear = new CANSparkMax(kRightRearID, MotorType.kBrushed);
+    CANSparkMax leftFront = new CANSparkMax(kLeftFrontID, MotorType.kBrushless);
+    // CANSparkMax leftRear = new CANSparkMax(kLeftRearID, MotorType.kBrushed);
+    CANSparkMax rightFront = new CANSparkMax(kRightFrontID, MotorType.kBrushless);
+    // CANSparkMax rightRear = new CANSparkMax(kRightRearID, MotorType.kBrushed);
 
     /*Sets current limits for the drivetrain motors. This helps reduce the likelihood of wheel spin, reduces motor heating
      *at stall (Drivetrain pushing against something) and helps maintain battery voltage under heavy demand */
     leftFront.setSmartCurrentLimit(kCurrentLimit);
-    leftRear.setSmartCurrentLimit(kCurrentLimit);
+    // leftRear.setSmartCurrentLimit(kCurrentLimit);
     rightFront.setSmartCurrentLimit(kCurrentLimit);
-    rightRear.setSmartCurrentLimit(kCurrentLimit);
+    // rightRear.setSmartCurrentLimit(kCurrentLimit);
 
     // Set the rear motors to follow the front motors.
-    leftRear.follow(leftFront);
-    rightRear.follow(rightFront);
+    // leftRear.follow(leftFront);
+    // rightRear.follow(rightFront);
 
     // Invert the left side so both side drive forward with positive motor outputs
     leftFront.setInverted(true);
